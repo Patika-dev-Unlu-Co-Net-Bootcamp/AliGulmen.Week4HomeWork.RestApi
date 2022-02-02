@@ -11,7 +11,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.GetR
         private static List<Rotation> RotationList = DataGenerator.RotationList;
         private static List<Product> ProductList = DataGenerator.ProductList;
 
-        public int RotationId { get; set; } //the id which will come from outside
+        public int RotationId { get; set; } 
 
         public GetRotationProductsQuery()
         {

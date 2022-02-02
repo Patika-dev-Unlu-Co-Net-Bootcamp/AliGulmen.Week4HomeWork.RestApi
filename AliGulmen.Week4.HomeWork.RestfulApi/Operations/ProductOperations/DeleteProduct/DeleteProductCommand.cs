@@ -21,7 +21,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.Delet
         public void Handle()
         {
 
-            var ourRecord = ProductList.SingleOrDefault(b => b.productId == ProductId); //is it exist?
+            var ourRecord = ProductList.SingleOrDefault(p => p.productId == ProductId); 
             if (ourRecord is null)
                 throw new InvalidOperationException("There is no record to delete!");
 

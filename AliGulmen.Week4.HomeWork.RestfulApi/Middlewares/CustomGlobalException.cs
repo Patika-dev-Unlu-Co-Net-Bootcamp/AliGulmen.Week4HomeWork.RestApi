@@ -8,7 +8,6 @@
     using System.Threading.Tasks;
 
 
-    // This middleware will be used for global exception
     public class CustomGlobalException
     {
 
@@ -23,7 +22,7 @@
 
         public async Task Invoke(HttpContext context)
         {
-            //instead of using seperate handlers on controller, we can write a try catch block for global exception here..
+           
             try
             {
                 await _next(context);
@@ -36,7 +35,6 @@
         }
 
 
-        //global exception
         private Task HandleException(HttpContext context, Exception ex)
         {
             context.Response.ContentType = "application/json";
@@ -44,10 +42,10 @@
             switch (ex)
             {
                 case InvalidOperationException:
-                    context.Response.StatusCode = (int)HttpStatusCode.BadRequest; //400 if unexpected
+                    context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                     break;
                 default:
-                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError; //500 if unexpected
+                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError; 
                     break;
             }
 

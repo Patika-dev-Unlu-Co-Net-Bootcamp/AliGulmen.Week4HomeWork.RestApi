@@ -11,7 +11,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Services.StorageService
         public void AddToStock(Container container)
         {
             
-            //if the client has warehouse all containers will be added to stockOnRack stock.
 
             var stock = StockList.FirstOrDefault(s => s.productId == container.productId);
             if (stock != null)
@@ -22,7 +21,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Services.StorageService
 
         public void Locate(Container container)
         {
-            //The container will be relocated to first empty place on rack. let's assume that 2. location
             container.locationId = 2;
         }
     }

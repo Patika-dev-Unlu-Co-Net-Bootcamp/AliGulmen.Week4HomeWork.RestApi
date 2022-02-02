@@ -21,7 +21,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ContainerOperations.Del
         public void Handle()
         {
 
-            var ourRecord = ContainerList.SingleOrDefault(c => c.containerId == ContainerId); //is it exist?
+            var ourRecord = ContainerList.SingleOrDefault(container => container.containerId == ContainerId); 
             if (ourRecord is null)
                 throw new InvalidOperationException("There is no record to delete!");
 

@@ -5,9 +5,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Extensions
     public static class CustomContainerValidateExtension
     {
        
-            // This extension method used for containers
-            // When the container will be updated, changes should be validated
-            // Take new container informations as a parameter and compare with the old and default one...
+          
             public static void ValidateWith(this Container existingContainer, Container newContainer)
             {
 

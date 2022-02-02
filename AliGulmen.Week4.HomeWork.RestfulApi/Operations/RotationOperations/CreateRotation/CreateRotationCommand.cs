@@ -8,7 +8,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.Crea
 {
     public class CreateRotationCommand
     {
-        //we haven't used Viewmodels and mappers yet. So, I'm going to create these with simplest way!
         public Rotation Model { get; set; }
         private static List<Rotation> RotationList = DataGenerator.RotationList;
 
@@ -24,9 +23,9 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.Crea
             if (Model == null)
                 throw new InvalidOperationException("No data entered!");
 
-            var rotation = RotationList.SingleOrDefault(u => u.rotationCode == Model.rotationCode); //check if we already have that Rotation
+            var rotation = RotationList.SingleOrDefault(u => u.rotationCode == Model.rotationCode); 
 
-            if (rotation is not null) //if the user not send any data, we will return bad request
+            if (rotation is not null)
                 throw new InvalidOperationException("You already have this rotation in your list!");
 
             rotation = Model;

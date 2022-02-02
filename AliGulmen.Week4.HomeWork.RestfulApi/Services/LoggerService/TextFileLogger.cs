@@ -3,7 +3,6 @@ using System.IO;
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Services.LoggerService
 {
-    //log actions to file 
     public class TextFileLogger : ILoggerService
     {
         public void Log(string message)

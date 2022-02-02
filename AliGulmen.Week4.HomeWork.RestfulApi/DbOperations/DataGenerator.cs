@@ -5,18 +5,12 @@ using System.Collections.Generic;
 namespace AliGulmen.Week4.HomeWork.RestfulApi.DbOperations
 {
 
-    /*
-     * We are not going to use database in this example
-     * So, we will define some accessible lists here.
-     * It will allow us to access different entities' data as we do on dbs.
-     */
+   
     public class DataGenerator
     {
 
 
-        /*
-         * This list includes Uoms
-         */
+      
         public static List<Uom> UomList = new List<Uom>() {
             new Uom { uomId = 1, uomCode = "Pk", description = "Package" },
             new Uom { uomId = 2, uomCode = "Pc", description = "Piece" },
@@ -29,7 +23,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.DbOperations
 
 
         /*
-         * This list includes Rotations
          * Category A, Category B, Category C (CatA > Cat B > Cat C)
          */
         public static List<Rotation> RotationList = new List<Rotation>() {
@@ -41,7 +34,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.DbOperations
 
 
 
-        /*This list includes Locations
+        /*
          * locationName =  xxyyzz 
         * xx = side (left=01, right=02)
         * yy = vertical cell (floor)
@@ -65,9 +58,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.DbOperations
 
 
 
-         /*
-          * This list includes Products
-          */
+       
         public static List<Product> ProductList = new List<Product>() {
             new Product { productId = 1, productCode = "87965493291", description = "Prod1",rotationId = 1,isActive =true ,lifeTime = 365 },
             new Product { productId = 2, productCode = "87965493292", description = "Prod2",rotationId = 1,isActive =true ,lifeTime = 365 },
@@ -82,9 +73,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.DbOperations
 
 
 
-        /*
-         * This list includes Containers
-         */
+      
         public static List<Container> ContainerList = new List<Container>() {
             new Container { containerId = 1, productId = 1, uomId = 1,quantity = 200,locationId =1 ,weight = 300, creationDate=DateTime.Today.AddDays(-100) },
             new Container { containerId = 2, productId = 1, uomId = 1,quantity = 100,locationId =5 ,weight = 250, creationDate=DateTime.Today.AddDays(-45) },
@@ -98,9 +87,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.DbOperations
         };
 
 
-        /*
-        * This list includes Stocks
-        */
+      
         public static List<Stock> StockList = new List<Stock>() {
             new Stock { productId = 1, readyToShip = 12, stockOnRack = 145},
             new Stock { productId = 2, readyToShip = 55, stockOnRack = 425},

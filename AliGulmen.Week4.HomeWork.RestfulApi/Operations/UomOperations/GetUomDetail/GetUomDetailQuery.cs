@@ -9,7 +9,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.GetUomDet
     public class GetUomDetailQuery
     {
         private static List<Uom> UomList = DataGenerator.UomList;
-        public int UomId { get; set; } //the id which will come from outside
+        public int UomId { get; set; } 
 
         public GetUomDetailQuery()
         {

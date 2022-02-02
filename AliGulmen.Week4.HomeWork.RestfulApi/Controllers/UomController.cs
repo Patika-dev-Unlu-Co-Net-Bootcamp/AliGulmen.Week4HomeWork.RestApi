@@ -9,7 +9,7 @@ using AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.UpdateUomDesc
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 {
-    [Route("api/[controller]s")]
+	[Route("api/[controller]s")]
 	[ApiController]
 	public class UomController : ControllerBase
 	{
@@ -25,7 +25,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
 
 
-		//Get all records
 		//GET api/uoms
 		[HttpGet]
 		public IActionResult GetUoms()
@@ -37,7 +36,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
 
 
-		//Get only one record from list
 		//GET api/uoms/1
 		[HttpGet("{id}")]
 		public IActionResult GetUomById(int id)
@@ -56,7 +54,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		/************************************* POST *********************************************/
 
 
-		//Create new uom
 		//POST api/uoms
 		[HttpPost]
 		public IActionResult CreateUom([FromBody] Uom newUom)
@@ -67,7 +64,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 			command.Handle();
 
 			
-			return Created("~api/uoms", newUom); //http 201 
+			return Created("~api/uoms", newUom);  
 		}
 
 
@@ -75,7 +72,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		/************************************* PUT *********************************************/
 
 
-		//Update all informations
 		//PUT api/uoms/id
 		[HttpPut("{id}")]
 		public IActionResult Update(int id, Uom newUom)
@@ -88,7 +84,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
 			command.Handle();
 
-			return NoContent(); //http 204 
+			return NoContent(); 
 
 		}
 
@@ -105,7 +101,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 			command.UomId = id;
 			command.Handle();
 
-			return NoContent(); //http 204
+			return NoContent(); 
 		}
 
 
@@ -113,7 +109,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		/************************************* PATCH *********************************************/
 
 
-		//udate description information
 		//PATCH api/uoms/id
 		[HttpPatch("{id}")]
 		public IActionResult UpdateDescription(int id, string description)
@@ -125,7 +120,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
 			command.Handle();
 
-			return NoContent(); //http 204
+			return NoContent();
 		}
 	}
 }

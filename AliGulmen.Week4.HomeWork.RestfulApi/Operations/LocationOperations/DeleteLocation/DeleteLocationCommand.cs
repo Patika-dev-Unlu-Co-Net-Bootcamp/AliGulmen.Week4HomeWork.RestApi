@@ -21,7 +21,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.Dele
         public void Handle()
         {
 
-            var ourRecord = LocationList.SingleOrDefault(l => l.locationId == LocationId); //is it exist?
+            var ourRecord = LocationList.SingleOrDefault(l => l.locationId == LocationId); 
             if (ourRecord is null)
                 throw new InvalidOperationException("There is no record to delete!");
 

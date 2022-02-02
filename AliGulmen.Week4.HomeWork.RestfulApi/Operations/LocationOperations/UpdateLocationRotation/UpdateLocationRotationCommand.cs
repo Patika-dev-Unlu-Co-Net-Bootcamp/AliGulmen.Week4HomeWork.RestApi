@@ -21,7 +21,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.Upda
         public void Handle()
         {
 
-            var location = LocationList.SingleOrDefault(l => l.locationId == LocationId); //at first, find the uom to update
+            var location = LocationList.SingleOrDefault(loc => loc.locationId == LocationId); 
             if (location is null)
                 throw new InvalidOperationException("Uom is not found!");
 

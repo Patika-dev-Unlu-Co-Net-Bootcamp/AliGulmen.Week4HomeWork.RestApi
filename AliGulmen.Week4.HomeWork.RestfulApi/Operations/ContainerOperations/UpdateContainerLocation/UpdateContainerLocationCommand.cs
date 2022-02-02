@@ -21,7 +21,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ContainerOperations.Upd
         public void Handle()
         {
 
-            var container = ContainerList.SingleOrDefault(c => c.containerId == ContainerId); //at first, find the uom to update
+            var container = ContainerList.SingleOrDefault(c => c.containerId == ContainerId); 
             if (container is null)
                 throw new InvalidOperationException("Container is not found!");
 

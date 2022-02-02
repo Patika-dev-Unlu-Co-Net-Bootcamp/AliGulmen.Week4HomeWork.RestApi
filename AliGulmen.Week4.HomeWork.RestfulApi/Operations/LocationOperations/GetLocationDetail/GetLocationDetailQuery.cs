@@ -9,7 +9,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.GetL
     public class GetLocationDetailQuery
     {
         private static List<Location> LocationList = DataGenerator.LocationList;
-        public int LocationId { get; set; } //the id which will come from outside
+        public int LocationId { get; set; }
 
         public GetLocationDetailQuery()
         {

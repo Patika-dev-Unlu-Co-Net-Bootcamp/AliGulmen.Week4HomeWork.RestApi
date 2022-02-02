@@ -1,10 +1,6 @@
 ﻿using AliGulmen.Week4.HomeWork.RestfulApi.Entities;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Linq;
-using AliGulmen.Week4.HomeWork.RestfulApi.DbOperations;
 using AliGulmen.Week4.HomeWork.RestfulApi.Services.StorageService;
-using AliGulmen.Week4.HomeWork.RestfulApi.Extensions;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.ContainerOperations.GetContainers;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.ContainerOperations.GetContainerDetail;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.ContainerOperations.CreateContainer;
@@ -52,7 +48,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
         }
 
 
-        //Get all containers by max weight ordered by weight
+       
         //GET api/products/list?maxWeight=100
         [HttpGet("list")]
         public IActionResult GetContainersByMaxWeight([FromQuery] int maxWeight)
@@ -80,7 +76,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
             command.Model = newContainer;
             command.Handle();
 
-            return Created("~api/containers", newContainer); //http 201 
+            return Created("~api/containers", newContainer);
         }
 
 
@@ -88,7 +84,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
         /************************************* PUT *********************************************/
 
 
-        //Update all informations
         //PUT api/containers/id
         [HttpPut("{id}")]
         public IActionResult Update(int id,Container newContainer)
@@ -100,7 +95,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
             command.Handle();
 
-            return NoContent(); //http 204 
+            return NoContent(); 
 
         }
 
@@ -116,7 +111,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
             command.ContainerId = id;
             command.Handle();
 
-            return NoContent(); //http 204
+            return NoContent(); 
         }
 
 
@@ -134,7 +129,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
             command.Handle();
 
-            return NoContent(); //http 204
+            return NoContent(); 
 
 
         }

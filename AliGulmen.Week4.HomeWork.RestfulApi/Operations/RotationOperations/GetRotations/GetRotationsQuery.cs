@@ -17,7 +17,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.GetR
 
         public List<Rotation> Handle()
         {
-            var rotationList = RotationList.OrderBy(u => u.rotationId).ToList<Rotation>();
+            var rotationList = RotationList.OrderBy(r => r.rotationId).ToList<Rotation>();
             return rotationList;
 
         }

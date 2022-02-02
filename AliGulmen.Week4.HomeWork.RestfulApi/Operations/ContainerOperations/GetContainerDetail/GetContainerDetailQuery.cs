@@ -18,7 +18,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ContainerOperations.Get
 
         public Container Handle()
         {
-            var container = ContainerList.Where(c => c.containerId == ContainerId).SingleOrDefault();
+            var container = ContainerList.Where(container => container.containerId == ContainerId).SingleOrDefault();
             if (container is null)
                 throw new InvalidOperationException("The container is not exist!");
 

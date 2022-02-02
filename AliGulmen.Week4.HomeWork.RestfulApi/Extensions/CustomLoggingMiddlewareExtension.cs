@@ -2,9 +2,9 @@
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Middlewares
 {
-    public static class CustomLoggingMiddlewareExtension
+	public static class CustomLoggingMiddlewareExtension
 	{
-		// to use in start.cs : app.UseCustomLoggingMiddleware() instead of app.UseMiddleware<CustomLoggingMiddleware>();
+	
 		public static IApplicationBuilder UseCustomLoggingMiddleware(this IApplicationBuilder builder)
 		{
 

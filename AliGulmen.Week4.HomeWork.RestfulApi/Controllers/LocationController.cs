@@ -1,8 +1,5 @@
 ﻿using AliGulmen.Week4.HomeWork.RestfulApi.Entities;
-using AliGulmen.Week4.HomeWork.RestfulApi.DbOperations;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Linq;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.GetLocations;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.GetLocationDetail;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.GetLocationListByRotation;
@@ -32,7 +29,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
             return Ok(result);
         }
 
-        //Get only one record from list
         //GET api/locations/1
         [HttpGet("{id}")]
         public IActionResult LocationById(int id)
@@ -44,7 +40,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
             return Ok(result);
         }
 
-        //Get all products belongs to specific rotation
         //GET api/products/list?rotationId=1
         [HttpGet("list")]
         public IActionResult GetProductsByRotation([FromQuery] int rotationId)
@@ -72,7 +67,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
             var command = new CreateLocationCommand();
             command.Model = newLocation;
             command.Handle();
-            return Created("~api/locations", newLocation); //http 201 
+            return Created("~api/locations", newLocation); 
         }
 
 
@@ -80,7 +75,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
         /************************************* PUT *********************************************/
 
 
-        //Update all informations
         //PUT api/locations/id
         [HttpPut("{id}")]
         public IActionResult Update(int id, Location newLocation)
@@ -92,7 +86,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
 
             command.Handle();
-            return NoContent(); //http 204 
+            return NoContent(); 
 
         }
 
@@ -107,14 +101,13 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
             var command = new DeleteLocationCommand();
             command.LocationId = id;
             command.Handle();
-            return NoContent(); //http 204 
+            return NoContent(); 
         }
 
 
 
         /************************************* PATCH *********************************************/
 
-        //udate rotationId information
         //PATCH api/locations/id
         [HttpPatch("{id}")]
         public IActionResult UpdateRotation(int id, int rotationId)
@@ -125,7 +118,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
 
             command.Handle();
-            return NoContent(); //http 204
+            return NoContent(); 
 
 
         }

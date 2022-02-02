@@ -24,7 +24,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.Updat
                 throw new InvalidOperationException("No data entered!");
 
 
-            var product = ProductList.SingleOrDefault(u => u.productId == ProductId); //at first, find the product to update
+            var product = ProductList.SingleOrDefault(u => u.productId == ProductId); 
             if (product is null)
                 throw new InvalidOperationException("Product is not found!");
 

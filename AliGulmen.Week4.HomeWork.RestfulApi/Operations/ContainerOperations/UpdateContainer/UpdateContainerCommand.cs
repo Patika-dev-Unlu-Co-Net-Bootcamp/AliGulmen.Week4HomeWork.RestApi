@@ -26,7 +26,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ContainerOperations.Upd
                 throw new InvalidOperationException("No data entered!");
 
 
-            var container = ContainerList.SingleOrDefault(c => c.containerId == ContainerId); //at first, find the container to update
+            var container = ContainerList.SingleOrDefault(c => c.containerId == ContainerId); 
             if (container is null)
                 throw new InvalidOperationException("Container is not found!");
 

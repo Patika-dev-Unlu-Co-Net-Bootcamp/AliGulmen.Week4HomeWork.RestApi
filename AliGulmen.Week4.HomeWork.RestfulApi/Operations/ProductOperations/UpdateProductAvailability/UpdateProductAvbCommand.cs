@@ -21,7 +21,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.Updat
         public void Handle()
         {
 
-            var product = ProductList.SingleOrDefault(u => u.productId == ProductId); //at first, find the product to update
+            var product = ProductList.SingleOrDefault(p => p.productId == ProductId); 
             if (product is null)
                 throw new InvalidOperationException("Product is not found!");
 

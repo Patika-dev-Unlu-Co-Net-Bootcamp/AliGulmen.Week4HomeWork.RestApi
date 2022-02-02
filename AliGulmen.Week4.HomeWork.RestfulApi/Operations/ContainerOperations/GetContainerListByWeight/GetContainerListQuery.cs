@@ -20,8 +20,8 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ContainerOperations.Get
         public List<Container> Handle()
         {
             var containers = ContainerList
-                                    .Where(c => c.weight <= MaxWeight)
-                                    .OrderBy(c => c.weight)
+                                    .Where(container => container.weight <= MaxWeight)
+                                    .OrderBy(container => container.weight)
                                     .ToList();
             if (containers is null)
                 throw new InvalidOperationException("The container is not exist!");

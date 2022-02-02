@@ -9,7 +9,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.GetPr
     public class GetProductListQuery
     {
         private static List<Product> ProductList = DataGenerator.ProductList;
-        public int RotationId { get; set; } //the id which will come from outside
+        public int RotationId { get; set; } 
 
         public GetProductListQuery()
         {

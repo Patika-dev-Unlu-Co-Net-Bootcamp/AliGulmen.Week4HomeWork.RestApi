@@ -25,9 +25,9 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
                 .GetMethod("IsLoggedIn")
                 .GetCustomAttributes(typeof(CustomPermissionAttribute), true)
                 .Cast<CustomPermissionAttribute>()
-                .Select(x => x.Permission).ToArray();
+                .Select(attribute => attribute.Permission).ToArray();
 
-            if(permissions.Any(p => p == username) && password == pass)
+            if(permissions.Any(parameter => parameter == username) && password == pass)
             return Ok();
             return Unauthorized();
         }

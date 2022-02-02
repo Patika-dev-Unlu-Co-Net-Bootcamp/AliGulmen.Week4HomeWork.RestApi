@@ -23,9 +23,9 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.Creat
             if (Model == null)
                 throw new InvalidOperationException("No data entered!");
 
-            var product = ProductList.SingleOrDefault(u => u.productId == Model.productId); //check if we already have that Product
+            var product = ProductList.SingleOrDefault(p => p.productId == Model.productId); 
 
-            if (product is not null) //if the user not send any data, we will return bad request
+            if (product is not null)
                 throw new InvalidOperationException("You already have this productCode in your list!");
 
             product = Model;

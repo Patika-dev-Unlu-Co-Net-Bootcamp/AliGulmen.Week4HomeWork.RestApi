@@ -24,7 +24,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.Upda
                 throw new InvalidOperationException("No data entered!");
 
 
-            var location = LocationList.SingleOrDefault(l => l.locationId == LocationId); //at first, find the location to update
+            var location = LocationList.SingleOrDefault(loc => loc.locationId == LocationId); 
             if (location is null)
                 throw new InvalidOperationException("Location is not found!");
 

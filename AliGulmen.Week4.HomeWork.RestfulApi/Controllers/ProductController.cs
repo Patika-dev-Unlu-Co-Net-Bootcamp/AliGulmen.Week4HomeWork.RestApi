@@ -24,7 +24,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
         /************************************* GET *********************************************/
 
-        //Get all records
         //GET api/products
         [HttpGet]
         public IActionResult GetProducts()
@@ -47,7 +46,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
             return Ok(result);
         }
 
-        //Get all containers for selected product
         //GET api/products/1/Containers
         [HttpGet("{id}/Containers")]
         public IActionResult GetContainersByProduct(int id)
@@ -60,7 +58,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
         }
 
 
-        //Get all products belongs to specific rotation
         //GET api/products/list?rotationId=1
         [HttpGet("list")]
         public IActionResult GetProductsByRotation([FromQuery] int rotationId)
@@ -86,7 +83,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
             command.Model = newProduct;
             command.Handle();
 
-            return Created("~api/products", newProduct); //http 201
+            return Created("~api/products", newProduct); 
         }
 
 
@@ -94,7 +91,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
         /************************************* PUT *********************************************/
 
 
-        //Update all informations
         //PUT api/products/id
         [HttpPut("{id}")]
         public IActionResult Update(int id,Product newProduct)
@@ -106,7 +102,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
 
             command.Handle();
-            return NoContent(); //http 204 
+            return NoContent(); 
         }
 
 
@@ -120,14 +116,13 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
             var command = new DeleteProductCommand();
             command.ProductId = id;
             command.Handle();
-            return NoContent(); //http 204 
+            return NoContent(); 
         }
 
 
 
         /************************************* PATCH *********************************************/
 
-        //udate availability information
         //PATCH api/products/id
         [HttpPatch("{id}")]
         public IActionResult UpdateAvailability(int id, bool isActive)
@@ -138,7 +133,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
 
             command.Handle();
-            return NoContent(); //http 204
+            return NoContent(); 
 
         }
 

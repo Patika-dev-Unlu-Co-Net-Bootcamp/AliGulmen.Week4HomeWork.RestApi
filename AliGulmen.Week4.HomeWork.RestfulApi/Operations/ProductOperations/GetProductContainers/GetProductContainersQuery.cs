@@ -10,7 +10,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.GetPr
     {
         private static List<Container> ContainerList = DataGenerator.ContainerList;
 
-        public int ProductId { get; set; } //the id which will come from outside
+        public int ProductId { get; set; } 
 
         public GetProductContainersQuery()
         {

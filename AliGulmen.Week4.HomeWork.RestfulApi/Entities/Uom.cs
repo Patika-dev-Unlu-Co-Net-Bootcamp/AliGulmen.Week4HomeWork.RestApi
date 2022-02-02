@@ -2,11 +2,7 @@
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Entities
 {
-    /*
-     * UOM : Unit of Measurement; a quantity used as a standard of measurement. 
-     * In this project, UOM used to quantify the container items.
-     * Box(BX), Carton(CTN), Piece(PC), Pack(PK),
-    */
+  
     public class Uom
     {
         [Required]

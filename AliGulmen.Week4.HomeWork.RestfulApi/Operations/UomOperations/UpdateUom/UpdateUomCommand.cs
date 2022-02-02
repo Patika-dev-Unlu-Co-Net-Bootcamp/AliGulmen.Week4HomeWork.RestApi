@@ -24,7 +24,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.UpdateUom
                 throw new InvalidOperationException("No data entered!");
 
 
-            var uom = UomList.SingleOrDefault(u => u.uomId == UomId); //at first, find the uom to update
+            var uom = UomList.SingleOrDefault(u => u.uomId == UomId); 
             if (uom is null)
                 throw new InvalidOperationException("Uom is not found!");
 

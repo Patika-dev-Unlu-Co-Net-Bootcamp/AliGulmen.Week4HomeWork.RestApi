@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 {
-    [Route("api/[controller]s")]
+	[Route("api/[controller]s")]
 	[ApiController]
 	public class RotationController : ControllerBase
 	{
@@ -22,7 +22,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
 		/************************************* GET *********************************************/
 
-		//Get all records
 		//GET api/rotations
 		[HttpGet]
 		public IActionResult GetRotations()
@@ -33,7 +32,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		}
 
 
-		//Get only one record from list
 		//GET api/rotations/1
 		[HttpGet("{id}")]
 		public IActionResult GetRotationById(int id)
@@ -46,7 +44,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		}
 
 
-		//Get locations by rotation
 		//GET api/rotations/1/Locations
 		[HttpGet("{id}/Locations")]
 		public IActionResult GetLocationsByRotation(int id)
@@ -59,7 +56,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		}
 
 
-		//Get products by rotation
 		//GET api/rotations/1/Products
 		[HttpGet("{id}/Products")]
 		public IActionResult GetProductsByRotation(int id)
@@ -85,7 +81,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 			command.Model = newRotation;
 			command.Handle();
 
-			return Created("~api/rotations", newRotation); //http 201
+			return Created("~api/rotations", newRotation); 
 		}
 
 
@@ -93,7 +89,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		/************************************* PUT *********************************************/
 
 
-		//Update all informations
 		//PUT api/rotations/id
 		[HttpPut("{id}")]
 		public IActionResult Update(int id,Rotation newRotation)
@@ -105,7 +100,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
 
 			command.Handle();
-			return NoContent(); //http 204 
+			return NoContent(); 
 		}
 
 
@@ -120,14 +115,13 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 			command.RotationId = id;
 			command.Handle();
 
-			return NoContent(); //http 204 
+			return NoContent(); 
 		}
 
 
 
 		/************************************* PATCH *********************************************/
 
-		//udate rotationCode information
 		//PATCH api/rotations/id
 		[HttpPatch("{id}")]
 		public IActionResult UpdateCode(int id, string code)
@@ -138,7 +132,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
 
 			command.Handle();
-			return NoContent(); //http 204
+			return NoContent(); 
 
 		}
 

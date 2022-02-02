@@ -11,7 +11,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.GetR
         private static List<Rotation> RotationList = DataGenerator.RotationList;
         private static List<Location> LocationList = DataGenerator.LocationList;
 
-        public int RotationId { get; set; } //the id which will come from outside
+        public int RotationId { get; set; } 
 
         public GetRotationLocationsQuery()
         {
@@ -21,7 +21,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.GetR
         public List<Location> Handle()
         {
 
-            var locations = LocationList.Where(p => p.rotationId == RotationId).ToList();
+            var locations = LocationList.Where(loc => loc.rotationId == RotationId).ToList();
             if (locations.Count == 0)
                 throw new InvalidOperationException("There is no location defined with this rotation");
 

@@ -24,7 +24,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.Upda
                 throw new InvalidOperationException("No data entered!");
 
 
-            var rotation = RotationList.SingleOrDefault(u => u.rotationId == RotationId); //at first, find the rotation to update
+            var rotation = RotationList.SingleOrDefault(u => u.rotationId == RotationId); 
             if (rotation is null)
                 throw new InvalidOperationException("Rotation is not found!");
 

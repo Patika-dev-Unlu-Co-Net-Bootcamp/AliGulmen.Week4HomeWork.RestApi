@@ -8,7 +8,6 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.CreateUom
 {
     public class CreateUomCommand
     {
-        //we haven't used Viewmodels and mappers yet. So, I'm going to create these with simplest way!
         public Uom Model { get; set; }
         private static List<Uom> UomList = DataGenerator.UomList;
 
@@ -24,9 +23,9 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.CreateUom
             if (Model == null) 
                 throw new InvalidOperationException("No data entered!");
 
-             var uom = UomList.SingleOrDefault(u => u.uomId == Model.uomId); //check if we already have that Uom
+             var uom = UomList.SingleOrDefault(u => u.uomId == Model.uomId); 
 
-            if (uom is not null) //if the user not send any data, we will return bad request
+            if (uom is not null) 
                 throw new InvalidOperationException("You already have this uomCode in your list!");
 
             uom = Model;
