@@ -2,12 +2,13 @@
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Entities
 {
-    public class Stock
+    public class Stock : BaseEntity
     {
-        [Required]
-        public int productId { get; set; }
-
-        public int readyToShip { get; set; }
-        public int stockOnRack { get; set; }
+        public int Id { get; set; }
+        
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+        public int ReadyToShip { get; set; }
+        public int StockOnRack { get; set; }
     }
 }

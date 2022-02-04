@@ -21,12 +21,12 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.Upda
         public void Handle()
         {
 
-            var location = LocationList.SingleOrDefault(loc => loc.locationId == LocationId); 
+            var location = LocationList.SingleOrDefault(loc => loc.Id == LocationId); 
             if (location is null)
                 throw new InvalidOperationException("Uom is not found!");
 
 
-            location.rotationId = RotationId != default ? RotationId : location.rotationId;
+            location.RotationId = RotationId != default ? RotationId : location.RotationId;
 
 
         }

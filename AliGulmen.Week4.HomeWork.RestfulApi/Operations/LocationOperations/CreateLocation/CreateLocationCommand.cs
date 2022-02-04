@@ -23,7 +23,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.Crea
             if (Model == null)
                 throw new InvalidOperationException("No data entered!");
 
-            var location = LocationList.SingleOrDefault(u => u.locationId == Model.locationId);
+            var location = LocationList.SingleOrDefault(u => u.Id == Model.Id);
 
             if (location is not null) 
                 throw new InvalidOperationException("You already have this locationCode in your list!");

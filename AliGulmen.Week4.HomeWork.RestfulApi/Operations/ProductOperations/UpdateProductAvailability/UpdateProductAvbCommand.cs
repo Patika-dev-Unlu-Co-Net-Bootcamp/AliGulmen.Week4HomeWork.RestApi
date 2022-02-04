@@ -21,12 +21,12 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.Updat
         public void Handle()
         {
 
-            var product = ProductList.SingleOrDefault(p => p.productId == ProductId); 
+            var product = ProductList.SingleOrDefault(p => p.Id == ProductId); 
             if (product is null)
                 throw new InvalidOperationException("Product is not found!");
 
 
-            product.isActive = IsActive != default ? IsActive : product.isActive;
+            product.IsActive = IsActive != default ? IsActive : product.IsActive;
 
 
         }

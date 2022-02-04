@@ -1,3 +1,4 @@
+using AliGulmen.Week4.HomeWork.RestfulApi.Entities;
 using AliGulmen.Week4.HomeWork.RestfulApi.Filters;
 using AliGulmen.Week4.HomeWork.RestfulApi.Middlewares;
 using AliGulmen.Week4.HomeWork.RestfulApi.Services.LoggerService;
@@ -5,6 +6,8 @@ using AliGulmen.Week4.HomeWork.RestfulApi.Services.StorageService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -33,6 +36,19 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi
                 config.Filters.Add(new CreationTimeFilter());
                 config.Filters.Add(new ResponseTimeFilter());
             });
+
+
+
+            // For Entity Framework  
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+
+            // For Identity  
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+
+
 
             //JWT
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(

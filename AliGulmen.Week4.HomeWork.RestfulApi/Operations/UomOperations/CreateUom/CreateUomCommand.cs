@@ -23,7 +23,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.CreateUom
             if (Model == null) 
                 throw new InvalidOperationException("No data entered!");
 
-             var uom = UomList.SingleOrDefault(u => u.uomId == Model.uomId); 
+             var uom = UomList.SingleOrDefault(u => u.Id == Model.Id); 
 
             if (uom is not null) 
                 throw new InvalidOperationException("You already have this uomCode in your list!");

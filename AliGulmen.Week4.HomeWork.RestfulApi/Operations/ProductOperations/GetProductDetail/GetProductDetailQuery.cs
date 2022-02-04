@@ -18,7 +18,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.GetPr
 
         public Product Handle()
         {
-            var product = ProductList.Where(p => p.productId == ProductId).SingleOrDefault();
+            var product = ProductList.Where(p => p.Id == ProductId).SingleOrDefault();
             if (product is null)
                 throw new InvalidOperationException("The product is not exist!");
 

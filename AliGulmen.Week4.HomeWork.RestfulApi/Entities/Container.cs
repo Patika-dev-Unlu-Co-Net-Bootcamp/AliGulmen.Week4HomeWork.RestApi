@@ -4,27 +4,25 @@ using System.ComponentModel.DataAnnotations;
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Entities
 {
   
-    public class Container
+    public class Container : BaseEntity
     {
-        [Required]
-        public int containerId { get; set; }
-
-        [Required]
-        public int productId { get; set; }
-
-        [Required]
-        public int uomId { get; set; }
-
-        [Required]
-        public int quantity { get; set; }
-
-        [Required]
-        public int locationId { get; set; }
         
-        public int weight { get; set; }
+        public int Id { get; set; }
+
+       
+       public Product Product { get; set; }
+      
+        public Uom Uom { get; set; }
 
         [Required]
-        public DateTime creationDate { get; set; }
+        public int Quantity { get; set; }
+
+       public int LocationId { get; set; }
+      public Location Location { get; set; }
+        
+        public int Weight { get; set; }
+
+    
 
     }
 }

@@ -23,7 +23,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.Creat
             if (Model == null)
                 throw new InvalidOperationException("No data entered!");
 
-            var product = ProductList.SingleOrDefault(p => p.productId == Model.productId); 
+            var product = ProductList.SingleOrDefault(p => p.Id == Model.Id); 
 
             if (product is not null)
                 throw new InvalidOperationException("You already have this productCode in your list!");

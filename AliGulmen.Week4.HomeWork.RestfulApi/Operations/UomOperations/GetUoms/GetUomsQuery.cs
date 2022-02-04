@@ -17,7 +17,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.GetUoms
 
         public List<Uom> Handle()
         {
-            var uomList = UomList.OrderBy(u => u.uomId).ToList<Uom>();
+            var uomList = UomList.OrderBy(u => u.Id).ToList<Uom>();
             return uomList;
 
         }

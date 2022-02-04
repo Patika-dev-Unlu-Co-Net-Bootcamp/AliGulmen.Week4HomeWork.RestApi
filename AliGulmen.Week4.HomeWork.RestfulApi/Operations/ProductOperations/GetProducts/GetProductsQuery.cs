@@ -17,7 +17,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.GetPr
 
         public List<Product> Handle()
         {
-            var productList = ProductList.OrderBy(p => p.productId).ToList<Product>();
+            var productList = ProductList.OrderBy(p => p.Id).ToList<Product>();
             return productList;
 
         }

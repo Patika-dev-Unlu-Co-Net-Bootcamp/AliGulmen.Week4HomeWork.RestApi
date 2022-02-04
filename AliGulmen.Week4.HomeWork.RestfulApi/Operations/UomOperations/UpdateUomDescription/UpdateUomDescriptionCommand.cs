@@ -21,12 +21,12 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.UpdateUom
         public void Handle()
         {
            
-            var uom = UomList.SingleOrDefault(u => u.uomId == UomId); 
+            var uom = UomList.SingleOrDefault(u => u.Id == UomId); 
             if (uom is null)
                 throw new InvalidOperationException("Uom is not found!");
 
 
-            uom.description = Description != default ? Description : uom.description;
+            uom.Description = Description != default ? Description : uom.Description;
 
 
         }

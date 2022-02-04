@@ -1,15 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Entities
 {
   
-    public class Uom
+    public class Uom : BaseEntity
     {
-        [Required]
-        public int uomId { get; set; }
+       
+        public int Id { get; set; }
 
         [Required]
-        public string uomCode { get; set; }
-        public string description { get; set; }
+        public string UomCode { get; set; }
+        public string Description { get; set; }
+
+     public List<Container> Container { get; set; }
     }
 }

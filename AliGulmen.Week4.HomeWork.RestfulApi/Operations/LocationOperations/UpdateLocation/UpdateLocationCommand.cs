@@ -24,15 +24,15 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.Upda
                 throw new InvalidOperationException("No data entered!");
 
 
-            var location = LocationList.SingleOrDefault(loc => loc.locationId == LocationId); 
+            var location = LocationList.SingleOrDefault(loc => loc.Id == LocationId); 
             if (location is null)
                 throw new InvalidOperationException("Location is not found!");
 
 
 
-            location.locationId = Model.locationId != default ? Model.locationId : location.locationId;
-            location.locationName = Model.locationName != default ? Model.locationName : location.locationName;
-            location.rotationId = Model.rotationId != default ? Model.rotationId : location.rotationId;
+            location.Id = Model.Id != default ? Model.Id : location.Id;
+            location.LocationName = Model.LocationName != default ? Model.LocationName : location.LocationName;
+            location.RotationId = Model.RotationId != default ? Model.RotationId : location.RotationId;
            
 
         }

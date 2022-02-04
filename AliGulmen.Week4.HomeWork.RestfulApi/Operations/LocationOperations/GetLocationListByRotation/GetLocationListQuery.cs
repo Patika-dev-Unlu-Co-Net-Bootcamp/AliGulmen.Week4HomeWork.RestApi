@@ -18,7 +18,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.GetL
 
         public List<Location> Handle()
         {
-            var locations = LocationList.Where(l => l.rotationId == RotationId).ToList();
+            var locations = LocationList.Where(l => l.RotationId == RotationId).ToList();
             if (locations is null)
                 throw new InvalidOperationException("The location is not exist!");
 

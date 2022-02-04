@@ -18,7 +18,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.GetPr
 
         public List<Product> Handle()
         {
-              var products = ProductList.Where(b => b.rotationId == RotationId).ToList();
+              var products = ProductList.Where(b => b.Rotation.Id == RotationId).ToList();
             if (products is null)
                 throw new InvalidOperationException("The product is not exist!");
 

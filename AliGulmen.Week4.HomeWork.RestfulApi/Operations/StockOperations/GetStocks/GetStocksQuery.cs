@@ -17,7 +17,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.StockOperations.GetStoc
 
         public List<Stock> Handle()
         {
-            var stockList = StockList.OrderBy(u => u.productId).ToList<Stock>();
+            var stockList = StockList.OrderBy(u => u.ProductId).ToList<Stock>();
             return stockList;
 
         }

@@ -13,16 +13,16 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Services.StorageService
         {
           
 
-            var stock = StockList.FirstOrDefault(s => s.productId > container.productId);
+            var stock = StockList.FirstOrDefault(s => s.ProductId > container.Product.Id);
             if (stock != null)
-                stock.readyToShip += 1;
+                stock.ReadyToShip += 1;
             else
-                StockList.Add(new Stock { productId=container.productId, readyToShip=1,stockOnRack=0});
+                StockList.Add(new Stock { ProductId=container.Product.Id, ReadyToShip=1,StockOnRack=0});
         }
 
         public void Locate(Container container)
         {
-            container.locationId = 1;
+            container.LocationId = 1;
         }
     }
 }

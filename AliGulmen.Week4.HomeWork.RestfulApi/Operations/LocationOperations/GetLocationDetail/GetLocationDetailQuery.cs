@@ -18,7 +18,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.GetL
 
         public Location Handle()
         {
-            var location = LocationList.Where(l => l.locationId == LocationId).SingleOrDefault();
+            var location = LocationList.Where(l => l.Id == LocationId).SingleOrDefault();
             if (location is null)
                 throw new InvalidOperationException("The location is not exist!");
 

@@ -22,7 +22,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.DeleteUom
         public void Handle()
         {
 
-            var ourRecord = UomList.SingleOrDefault(b => b.uomId == UomId); //is it exist?
+            var ourRecord = UomList.SingleOrDefault(b => b.Id == UomId); //is it exist?
             if (ourRecord is null)
                 throw new InvalidOperationException("There is no record to delete!");
           

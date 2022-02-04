@@ -23,7 +23,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.Crea
             if (Model == null)
                 throw new InvalidOperationException("No data entered!");
 
-            var rotation = RotationList.SingleOrDefault(u => u.rotationCode == Model.rotationCode); 
+            var rotation = RotationList.SingleOrDefault(u => u.RotationCode == Model.RotationCode); 
 
             if (rotation is not null)
                 throw new InvalidOperationException("You already have this rotation in your list!");

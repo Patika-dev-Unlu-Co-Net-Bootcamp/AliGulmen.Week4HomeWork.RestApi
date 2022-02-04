@@ -3,14 +3,17 @@
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Entities
 {
     
-    public class Location
+    public class Location : BaseEntity
     {
-        [Required]
-        public int locationId { get; set; }
+       
+        public int Id { get; set; }
 
         [Required]
-        public string locationName { get; set; }
+        public string LocationName { get; set; }
 
-        public int rotationId { get; set; }
+        public int RotationId { get; set; }
+        public Rotation Rotation { get; set; }
+
+        public Container Container { get; set; }
     }
 }

@@ -24,14 +24,14 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.UpdateUom
                 throw new InvalidOperationException("No data entered!");
 
 
-            var uom = UomList.SingleOrDefault(u => u.uomId == UomId); 
+            var uom = UomList.SingleOrDefault(u => u.Id == UomId); 
             if (uom is null)
                 throw new InvalidOperationException("Uom is not found!");
 
 
-            uom.uomId = Model.uomId != default ? Model.uomId : uom.uomId;
-            uom.uomCode = Model.uomCode != default ? Model.uomCode : uom.uomCode;
-            uom.description = Model.description != default ? Model.description : uom.description;
+            uom.Id = Model.Id != default ? Model.Id : uom.Id;
+            uom.UomCode = Model.UomCode != default ? Model.UomCode : uom.UomCode;
+            uom.Description = Model.Description != default ? Model.Description : uom.Description;
 
 
         }

@@ -21,12 +21,12 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ContainerOperations.Upd
         public void Handle()
         {
 
-            var container = ContainerList.SingleOrDefault(c => c.containerId == ContainerId); 
+            var container = ContainerList.SingleOrDefault(c => c.Id == ContainerId); 
             if (container is null)
                 throw new InvalidOperationException("Container is not found!");
 
-
-            container.locationId = ContainerId != default ? ContainerId : container.locationId;
+          
+            container.LocationId = ContainerId != default ? ContainerId : container.LocationId;
 
 
         }

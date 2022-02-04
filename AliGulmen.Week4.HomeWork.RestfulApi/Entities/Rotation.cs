@@ -1,15 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Entities
 {
 
    
-    public class Rotation
+    public class Rotation : BaseEntity
     {
-        [Required]
-        public int rotationId { get; set; }
+       
+        public int Id { get; set; }
 
         [Required]
-        public string rotationCode { get; set; }
+        public string RotationCode { get; set; }
+
+        public List<Location> Locations { get; set; }
+        public List<Product> Products { get; set; }
+    
     }
 }

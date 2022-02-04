@@ -1,23 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Entities
 {
 	
-	public class Product
+	public class Product : BaseEntity
 	{
-		[Required]
-		public int productId { get; set; }
+		
+		public int Id { get; set; }
 
 		[Required]
-		public string productCode { get; set; }
+		public string ProductCode { get; set; }
 
-		public string description { get; set; }
-		public int rotationId { get; set; }
+		public string Description { get; set; }
+		public Rotation Rotation { get; set; }
 
-		[Required]
-		public bool isActive { get; set; }
+		public int LifeTime { get; set; }
 
-		public int lifeTime { get; set; }
-
+	
+		public List<Container> Container { get; set; }
 	}
 }

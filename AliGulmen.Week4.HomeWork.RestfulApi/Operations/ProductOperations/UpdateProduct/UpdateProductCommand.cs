@@ -24,18 +24,18 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.Updat
                 throw new InvalidOperationException("No data entered!");
 
 
-            var product = ProductList.SingleOrDefault(u => u.productId == ProductId); 
+            var product = ProductList.SingleOrDefault(u => u.Id == ProductId); 
             if (product is null)
                 throw new InvalidOperationException("Product is not found!");
 
 
            
-            product.productId = Model.productId != default ? Model.productId : product.productId;
-            product.productCode = Model.productCode != default ? Model.productCode : product.productCode;
-            product.description = Model.description != default ? Model.description : product.description;
-            product.rotationId = Model.rotationId != default ? Model.rotationId : product.rotationId;
-            product.isActive = Model.isActive != default ? Model.isActive : product.isActive;
-            product.lifeTime = Model.lifeTime != default ? Model.lifeTime : product.lifeTime;
+            product.Id = Model.Id != default ? Model.Id : product.Id;
+            product.ProductCode = Model.ProductCode != default ? Model.ProductCode : product.ProductCode;
+            product.Description = Model.Description != default ? Model.Description : product.Description;
+            product.Rotation.Id = Model.Rotation.Id != default ? Model.Rotation.Id : product.Rotation.Id;
+            product.IsActive = Model.IsActive != default ? Model.IsActive : product.IsActive;
+            product.LifeTime = Model.LifeTime != default ? Model.LifeTime : product.LifeTime;
 
 
         }

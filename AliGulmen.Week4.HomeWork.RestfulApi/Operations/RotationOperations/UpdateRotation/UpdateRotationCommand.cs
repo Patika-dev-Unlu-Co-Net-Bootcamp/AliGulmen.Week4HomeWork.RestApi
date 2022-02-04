@@ -24,13 +24,13 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.Upda
                 throw new InvalidOperationException("No data entered!");
 
 
-            var rotation = RotationList.SingleOrDefault(u => u.rotationId == RotationId); 
+            var rotation = RotationList.SingleOrDefault(u => u.Id == RotationId); 
             if (rotation is null)
                 throw new InvalidOperationException("Rotation is not found!");
 
 
-            rotation.rotationId = Model.rotationId != default ? Model.rotationId : rotation.rotationId;
-            rotation.rotationCode = Model.rotationCode != default ? Model.rotationCode : rotation.rotationCode;
+            rotation.Id = Model.Id != default ? Model.Id : rotation.Id;
+            rotation.RotationCode = Model.RotationCode != default ? Model.RotationCode : rotation.RotationCode;
            
 
 

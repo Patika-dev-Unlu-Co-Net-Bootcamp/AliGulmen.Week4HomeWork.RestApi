@@ -12,10 +12,10 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.DbOperations
 
       
         public static List<Uom> UomList = new List<Uom>() {
-            new Uom { uomId = 1, uomCode = "Pk", description = "Package" },
-            new Uom { uomId = 2, uomCode = "Pc", description = "Piece" },
-            new Uom { uomId = 3, uomCode = "Box", description = "Box" },
-            new Uom { uomId = 4, uomCode = "Ctn", description = "Carton" }
+            //new Uom { Id = 1, UomCode = "Pk", Description = "Package" },
+            //new Uom { Id = 2, UomCode = "Pc", Description = "Piece" },
+            //new Uom { Id = 3, UomCode = "Box", Description = "Box" },
+            //new Uom { Id = 4, UomCode = "Ctn", Description = "Carton" }
            
         };
 
@@ -26,10 +26,10 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.DbOperations
          * Category A, Category B, Category C (CatA > Cat B > Cat C)
          */
         public static List<Rotation> RotationList = new List<Rotation>() {
-            new Rotation { rotationId = 1, rotationCode = "Cat A"},
-            new Rotation { rotationId = 2, rotationCode = "Cat B" },
-            new Rotation { rotationId = 3, rotationCode = "Cat C" },
-            new Rotation { rotationId = 4, rotationCode = "Cat D" }
+            //new Rotation { Id = 1, RotationCode = "Cat A"},
+            //new Rotation { Id = 2, RotationCode = "Cat B" },
+            //new Rotation { Id = 3, RotationCode = "Cat C" },
+            //new Rotation { Id = 4, RotationCode = "Cat D" }
         };
 
 
@@ -41,18 +41,18 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.DbOperations
         * zz = horizontal cell (slot) */
 
         public static List<Location> LocationList = new List<Location>() {
-            new Location { locationId = 1, locationName = "DockArea", rotationId = 1 },
-            new Location { locationId = 2, locationName = "010102", rotationId = 2 },
-            new Location { locationId = 3, locationName = "010103", rotationId = 3 },
-            new Location { locationId = 4, locationName = "010201", rotationId = 1 },
-            new Location { locationId = 5, locationName = "010202", rotationId = 2 },
-            new Location { locationId = 6, locationName = "010203", rotationId = 3 },
-            new Location { locationId = 7, locationName = "020101", rotationId = 1 },
-            new Location { locationId = 8, locationName = "020102", rotationId = 2 },
-            new Location { locationId = 9, locationName = "020103", rotationId = 3 },
-            new Location { locationId = 10, locationName = "020201", rotationId = 1 },
-            new Location { locationId = 11, locationName = "020202", rotationId = 2 },
-            new Location { locationId = 12, locationName = "020203", rotationId = 3 }, 
+            //new Location { Id = 1, LocationName = "DockArea", RotationId = 1 },
+            //new Location { Id = 2, LocationName = "010102", RotationId = 2 },
+            //new Location { Id = 3, LocationName = "010103", RotationId = 3 },
+            //new Location { Id = 4, LocationName = "010201", RotationId = 1 },
+            //new Location { Id = 5, LocationName = "010202", RotationId = 2 },
+            //new Location { Id = 6, LocationName = "010203", RotationId = 3 },
+            //new Location { Id = 7, LocationName = "020101", RotationId = 1 },
+            //new Location { Id = 8, LocationName = "020102", RotationId = 2 },
+            //new Location { Id = 9, LocationName = "020103", RotationId = 3 },
+            //new Location { Id = 10, LocationName = "020201", RotationId = 1 },
+            //new Location { Id = 11, LocationName = "020202", RotationId = 2 },
+            //new Location { Id = 12, LocationName = "020203", RotationId = 3 }, 
            
         };
 
@@ -60,14 +60,14 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.DbOperations
 
        
         public static List<Product> ProductList = new List<Product>() {
-            new Product { productId = 1, productCode = "87965493291", description = "Prod1",rotationId = 1,isActive =true ,lifeTime = 365 },
-            new Product { productId = 2, productCode = "87965493292", description = "Prod2",rotationId = 1,isActive =true ,lifeTime = 365 },
-            new Product { productId = 3, productCode = "87965493293", description = "Prod3",rotationId = 1,isActive =true ,lifeTime = 365 },
-            new Product { productId = 4, productCode = "87965493294", description = "Prod4",rotationId = 2,isActive =true ,lifeTime = 365 },
-            new Product { productId = 5, productCode = "87965493295", description = "Prod5",rotationId = 2,isActive =false ,lifeTime = 365 },
-            new Product { productId = 6, productCode = "87965493296", description = "Prod6",rotationId = 2,isActive =true ,lifeTime = 365 },
-            new Product { productId = 7, productCode = "87965493297", description = "Prod7",rotationId = 3,isActive =true ,lifeTime = 365 },
-            new Product { productId = 8, productCode = "87965493298", description = "Prod8",rotationId = 4,isActive =true ,lifeTime = 365 }
+            //new Product { Id = 1, ProductCode = "87965493291", Description = "Prod1",RotationId = 1,IsActive =true ,LifeTime = 365 },
+            //new Product { Id = 2, ProductCode = "87965493292", Description = "Prod2",RotationId = 1,IsActive =true ,LifeTime = 365 },
+            //new Product { Id = 3, ProductCode = "87965493293", Description = "Prod3",RotationId = 1,IsActive =true ,LifeTime = 365 },
+            //new Product { Id = 4, ProductCode = "87965493294", Description = "Prod4",RotationId = 2,IsActive =true ,LifeTime = 365 },
+            //new Product { Id = 5, ProductCode = "87965493295", Description = "Prod5",RotationId = 2,IsActive =false ,LifeTime = 365 },
+            //new Product { Id = 6, ProductCode = "87965493296", Description = "Prod6",RotationId = 2,IsActive =true ,LifeTime = 365 },
+            //new Product { Id = 7, ProductCode = "87965493297", Description = "Prod7",RotationId = 3,IsActive =true ,LifeTime = 365 },
+            //new Product { Id = 8, ProductCode = "87965493298", Description = "Prod8",RotationId = 4,IsActive =true ,LifeTime = 365 }
 
         };
 
@@ -75,28 +75,28 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.DbOperations
 
       
         public static List<Container> ContainerList = new List<Container>() {
-            new Container { containerId = 1, productId = 1, uomId = 1,quantity = 200,locationId =1 ,weight = 300, creationDate=DateTime.Today.AddDays(-100) },
-            new Container { containerId = 2, productId = 1, uomId = 1,quantity = 100,locationId =5 ,weight = 250, creationDate=DateTime.Today.AddDays(-45) },
-            new Container { containerId = 3, productId = 3, uomId = 2,quantity = 150,locationId =3 ,weight = 400, creationDate=DateTime.Today.AddDays(-15) },
-            new Container { containerId = 4, productId = 4, uomId = 2,quantity = 150,locationId =6 ,weight = 300, creationDate=DateTime.Today.AddDays(-1) },
-            new Container { containerId = 5, productId = 4, uomId = 2,quantity = 150,locationId =7 ,weight = 300, creationDate=DateTime.Today.AddDays(-97) },
-            new Container { containerId = 6, productId = 6, uomId = 2,quantity = 240,locationId =8 ,weight = 240, creationDate=DateTime.Today.AddDays(-16) },
-            new Container { containerId = 7, productId = 7, uomId = 2,quantity = 300,locationId =11 ,weight = 500, creationDate=DateTime.Today.AddDays(-16) },
-            new Container { containerId = 8, productId = 8, uomId = 3,quantity = 140,locationId =9 ,weight = 250, creationDate=DateTime.Today.AddDays(-78) }
+            //new Container { Id = 1, ProductId = 1, UomId = 1,Quantity = 200,LocationId =1 ,Weight = 300, CreationDate=DateTime.Today.AddDays(-100) },
+            //new Container { Id = 2, ProductId = 1, UomId = 1,Quantity = 100,LocationId =5 ,Weight = 250, CreationDate=DateTime.Today.AddDays(-45) },
+            //new Container { Id = 3, ProductId = 3, UomId = 2,Quantity = 150,LocationId =3 ,Weight = 400, CreationDate=DateTime.Today.AddDays(-15) },
+            //new Container { Id = 4, ProductId = 4, UomId = 2,Quantity = 150,LocationId =6 ,Weight = 300, CreationDate=DateTime.Today.AddDays(-1) },
+            //new Container { Id = 5, ProductId = 4, UomId = 2,Quantity = 150,LocationId =7 ,Weight = 300, CreationDate=DateTime.Today.AddDays(-97) },
+            //new Container { Id = 6, ProductId = 6, UomId = 2,Quantity = 240,LocationId =8 ,Weight = 240, CreationDate=DateTime.Today.AddDays(-16) },
+            //new Container { Id = 7, ProductId = 7, UomId = 2,Quantity = 300,LocationId =11 ,Weight = 500, CreationDate=DateTime.Today.AddDays(-16) },
+            //new Container { Id = 8, ProductId = 8, UomId = 3,Quantity = 140,LocationId =9 ,Weight = 250, CreationDate=DateTime.Today.AddDays(-78) }
 
         };
 
 
       
         public static List<Stock> StockList = new List<Stock>() {
-            new Stock { productId = 1, readyToShip = 12, stockOnRack = 145},
-            new Stock { productId = 2, readyToShip = 55, stockOnRack = 425},
-            new Stock { productId = 3, readyToShip = 47, stockOnRack = 123},
-            new Stock { productId = 4, readyToShip = 34, stockOnRack = 262},
-            new Stock { productId = 5, readyToShip = 23, stockOnRack = 190},
-            new Stock { productId = 6, readyToShip = 17, stockOnRack = 43},
-            new Stock { productId = 7, readyToShip = 0, stockOnRack = 0},
-            new Stock { productId = 8, readyToShip = 23, stockOnRack = 21}
+            //new Stock { ProductId = 1, ReadyToShip = 12, StockOnRack = 145},
+            //new Stock { ProductId = 2, ReadyToShip = 55, StockOnRack = 425},
+            //new Stock { ProductId = 3, ReadyToShip = 47, StockOnRack = 123},
+            //new Stock { ProductId = 4, ReadyToShip = 34, StockOnRack = 262},
+            //new Stock { ProductId = 5, ReadyToShip = 23, StockOnRack = 190},
+            //new Stock { ProductId = 6, ReadyToShip = 17, StockOnRack = 43},
+            //new Stock { ProductId = 7, ReadyToShip = 0, StockOnRack = 0},
+            //new Stock { ProductId = 8, ReadyToShip = 23, StockOnRack = 21}
            
 
         };

@@ -21,7 +21,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.GetR
         public List<Location> Handle()
         {
 
-            var locations = LocationList.Where(loc => loc.rotationId == RotationId).ToList();
+            var locations = LocationList.Where(loc => loc.RotationId == RotationId).ToList();
             if (locations.Count == 0)
                 throw new InvalidOperationException("There is no location defined with this rotation");
 

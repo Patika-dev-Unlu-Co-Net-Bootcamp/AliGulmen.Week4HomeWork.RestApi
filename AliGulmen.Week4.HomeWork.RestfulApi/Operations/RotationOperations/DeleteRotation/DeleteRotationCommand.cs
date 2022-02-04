@@ -21,7 +21,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.Dele
         public void Handle()
         {
 
-            var ourRecord = RotationList.SingleOrDefault(r => r.rotationId == RotationId);
+            var ourRecord = RotationList.SingleOrDefault(r => r.Id == RotationId);
             if (ourRecord is null)
                 throw new InvalidOperationException("There is no record to delete!");
 

@@ -17,7 +17,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.GetL
 
         public List<Location> Handle()
         {
-            var locationList = LocationList.OrderBy(l => l.locationId).ToList<Location>();
+            var locationList = LocationList.OrderBy(l => l.Id).ToList<Location>();
             return locationList;
 
         }

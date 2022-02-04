@@ -23,7 +23,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ContainerOperations.Cre
             if (Model == null)
                 throw new InvalidOperationException("No data entered!");
 
-            var container = ContainerList.SingleOrDefault(c => c.containerId == Model.containerId); 
+            var container = ContainerList.SingleOrDefault(c => c.Id == Model.Id); 
 
             if (container is not null) 
                 throw new InvalidOperationException("You already have this container in your list!");

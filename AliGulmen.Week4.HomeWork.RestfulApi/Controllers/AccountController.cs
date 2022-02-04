@@ -23,7 +23,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
         {
             Token token = new Token();
 
-            if (user.Password == "1" && user.Email == "a@a.com")
+            if (user.PasswordHash == "1" && user.Email == "a@a.com")
             {
                 token = _tokenGenerator.CreateToken(user);
             }

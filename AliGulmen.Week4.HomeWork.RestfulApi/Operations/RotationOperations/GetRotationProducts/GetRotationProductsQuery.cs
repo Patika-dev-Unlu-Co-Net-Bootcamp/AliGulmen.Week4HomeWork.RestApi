@@ -21,7 +21,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.GetR
         public List<Product> Handle()
         {
 
-            var products = ProductList.Where(p => p.rotationId == RotationId).ToList();
+            var products = ProductList.Where(p => p.Rotation.Id == RotationId).ToList();
             if (products.Count == 0)
                 throw new InvalidOperationException("There is no product defined with this rotation");
 

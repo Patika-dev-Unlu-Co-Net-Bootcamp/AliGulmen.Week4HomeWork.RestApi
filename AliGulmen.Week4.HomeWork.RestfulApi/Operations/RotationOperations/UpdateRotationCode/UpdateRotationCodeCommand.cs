@@ -21,12 +21,12 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.Upda
         public void Handle()
         {
 
-            var rotation = RotationList.SingleOrDefault(u => u.rotationId == RotationId); 
+            var rotation = RotationList.SingleOrDefault(u => u.Id == RotationId); 
             if (rotation is null)
                 throw new InvalidOperationException("Rotation is not found!");
 
 
-            rotation.rotationCode = Code != default ? Code : rotation.rotationCode;
+            rotation.RotationCode = Code != default ? Code : rotation.RotationCode;
 
 
         }

@@ -20,7 +20,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.GetPr
         public List<Container> Handle()
         {
 
-            var containers = ContainerList.Where(c => c.productId == ProductId).ToList();
+            var containers = ContainerList.Where(c => c.Product.Id == ProductId).ToList();
             if (containers.Count == 0)
                 throw new InvalidOperationException("There is no container defined with this product");
 

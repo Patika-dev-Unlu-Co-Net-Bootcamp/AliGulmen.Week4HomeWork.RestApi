@@ -18,7 +18,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.GetUomDet
 
         public Uom Handle()
         {
-            var uom = UomList.Where(u => u.uomId == UomId).SingleOrDefault();
+            var uom = UomList.Where(u => u.Id == UomId).SingleOrDefault();
             if (uom is null)
                 throw new InvalidOperationException("The uom is not exist!");
 

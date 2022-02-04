@@ -19,7 +19,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.GetR
 
         public Rotation Handle()
         {
-            var rotation = RotationList.Where(r => r.rotationId == RotationId).SingleOrDefault();
+            var rotation = RotationList.Where(r => r.Id == RotationId).SingleOrDefault();
             if (rotation is null)
                 throw new InvalidOperationException("The rotation is not exist!");
 
