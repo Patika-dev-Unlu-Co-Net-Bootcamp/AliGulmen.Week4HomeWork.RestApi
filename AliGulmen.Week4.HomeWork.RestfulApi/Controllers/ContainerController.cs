@@ -8,9 +8,11 @@ using AliGulmen.Week4.HomeWork.RestfulApi.Operations.ContainerOperations.UpdateC
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.ContainerOperations.DeleteContainer;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.ContainerOperations.UpdateContainerLocation;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.ContainerOperations.GetContainerListByWeight;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]s")]
     [ApiController]
     public class ContainerController : ControllerBase
@@ -29,6 +31,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
         //GET api/containers
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult GetContainers()
         {
             var query = new GetContainersQuery();

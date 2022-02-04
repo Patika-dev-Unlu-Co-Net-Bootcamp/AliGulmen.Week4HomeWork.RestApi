@@ -7,10 +7,12 @@ using AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.GetRotat
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.GetRotations;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.UpdateRotation;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.UpdateRotationCode;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 {
+	[Authorize]
 	[Route("api/[controller]s")]
 	[ApiController]
 	public class RotationController : ControllerBase
@@ -23,6 +25,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		/************************************* GET *********************************************/
 
 		//GET api/rotations
+		[AllowAnonymous]
 		[HttpGet]
 		public IActionResult GetRotations()
 		{

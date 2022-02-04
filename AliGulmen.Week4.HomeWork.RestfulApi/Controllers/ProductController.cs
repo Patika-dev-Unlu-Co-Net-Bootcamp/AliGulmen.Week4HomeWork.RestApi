@@ -7,10 +7,12 @@ using AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.GetProduc
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.GetProducts;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.UpdateProduct;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.ProductOperations.UpdateProductAvailability;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]s")]
     [ApiController]
     public class ProductController : ControllerBase
@@ -25,6 +27,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
         /************************************* GET *********************************************/
 
         //GET api/products
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetProducts()
         {

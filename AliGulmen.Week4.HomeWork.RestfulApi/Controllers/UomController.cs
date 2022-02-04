@@ -6,9 +6,11 @@ using AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.GetUoms;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.GetUomDetail;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.UpdateUom;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.UpdateUomDescription;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 {
+	[Authorize]
 	[Route("api/[controller]s")]
 	[ApiController]
 	public class UomController : ControllerBase
@@ -26,6 +28,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
 
 		//GET api/uoms
+		[AllowAnonymous]
 		[HttpGet]
 		public IActionResult GetUoms()
 		{

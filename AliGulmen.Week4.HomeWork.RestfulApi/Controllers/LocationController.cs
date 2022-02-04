@@ -7,9 +7,11 @@ using AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.CreateLo
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.UpdateLocation;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.DeleteLocation;
 using AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.UpdateLocationRotation;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]s")]
     [ApiController]
     public class LocationController : ControllerBase
@@ -21,6 +23,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
         /************************************* GET *********************************************/
 
         //GET api/locations
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetLocations()
         {
