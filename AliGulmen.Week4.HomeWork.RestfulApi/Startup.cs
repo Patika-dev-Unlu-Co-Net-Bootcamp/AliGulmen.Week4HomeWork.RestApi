@@ -1,3 +1,4 @@
+using AliGulmen.Week4.HomeWork.RestfulApi.Filters;
 using AliGulmen.Week4.HomeWork.RestfulApi.Middlewares;
 using AliGulmen.Week4.HomeWork.RestfulApi.Services.LoggerService;
 using AliGulmen.Week4.HomeWork.RestfulApi.Services.StorageService;
@@ -19,21 +20,26 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //we add filters to controller. Because we want it works in each reponse time!
+          
+            services.AddControllers(config =>
+            {
+                config.Filters.Add(new CreationTimeFilter());
+                config.Filters.Add(new ResponseTimeFilter());
+            });
 
-            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AliGulmen.Week4.HomeWork.RestfulApi", Version = "v1" });
             });
 
-            services.AddSingleton<ILoggerService, TextFileLogger>(); // Log the actions to text file, might be changed to ConsoleLogger if necessary
-            services.AddSingleton<IStorageService, WarehouseStorage>(); //containers will be located on rack, not directly to shipping.
+            services.AddSingleton<ILoggerService, TextFileLogger>(); 
+            services.AddSingleton<IStorageService, WarehouseStorage>(); 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+   
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
