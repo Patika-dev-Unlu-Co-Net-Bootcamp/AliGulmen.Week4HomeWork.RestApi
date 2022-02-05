@@ -14,7 +14,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly IConfiguration _configuration;
+       // private readonly IConfiguration _configuration;
 
 
 

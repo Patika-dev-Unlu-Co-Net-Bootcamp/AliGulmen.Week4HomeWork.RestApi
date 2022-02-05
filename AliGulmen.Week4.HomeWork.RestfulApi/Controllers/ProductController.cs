@@ -44,7 +44,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
         [HttpGet("{id}/Containers")]
         public IActionResult GetContainersByProduct(int id)
         {
-            var result = _repository.GetProductDetail(id);
+            var result = _repository.GetProductContainers(id);
             return Ok(result);
         }
 
