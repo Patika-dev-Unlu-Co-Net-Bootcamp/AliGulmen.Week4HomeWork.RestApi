@@ -4,14 +4,16 @@ using AliGulmen.Week4.HomeWork.RestfulApi;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220205090708_containerModelChanged")]
+    partial class containerModelChanged
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,7 +132,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RotationId")
+                    b.Property<int?>("RotationId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdateDate")
@@ -487,9 +489,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Migrations
                 {
                     b.HasOne("AliGulmen.Week4.HomeWork.RestfulApi.Entities.Rotation", "Rotation")
                         .WithMany("Products")
-                        .HasForeignKey("RotationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RotationId");
 
                     b.Navigation("Rotation");
                 });

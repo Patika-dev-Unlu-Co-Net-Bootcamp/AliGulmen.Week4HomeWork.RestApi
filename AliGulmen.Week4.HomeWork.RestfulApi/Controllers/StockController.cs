@@ -1,4 +1,4 @@
-﻿using AliGulmen.Week4.HomeWork.RestfulApi.Operations.StockOperations.GetStocks;
+﻿using AliGulmen.Week4.HomeWork.RestfulApi.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,14 +9,20 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
     [ApiController]
     public class StockController : ControllerBase
     {
+        private readonly IStockRepository _repository;
+
+        public StockController(IStockRepository repository)
+        {
+            _repository = repository;
+        }
+
 
         //GET api/stocks
         [AllowAnonymous]
         [HttpGet]
         public IActionResult GetStocks()
         {
-            var query = new GetStocksQuery();
-            var result = query.Handle();
+            var result = _repository.GetStocks();
             return Ok(result);
           
         }

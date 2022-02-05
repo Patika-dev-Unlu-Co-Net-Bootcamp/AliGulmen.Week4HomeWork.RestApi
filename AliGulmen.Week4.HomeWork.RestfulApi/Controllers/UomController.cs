@@ -1,12 +1,7 @@
 ﻿using AliGulmen.Week4.HomeWork.RestfulApi.Entities;
 using Microsoft.AspNetCore.Mvc;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.CreateUom;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.DeleteUom;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.GetUoms;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.GetUomDetail;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.UpdateUom;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.UomOperations.UpdateUomDescription;
 using Microsoft.AspNetCore.Authorization;
+using AliGulmen.Week4.HomeWork.RestfulApi.Repositories;
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 {
@@ -16,14 +11,20 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 	public class UomController : ControllerBase
 	{
 
+
+		private readonly IUomRepository _repository;
+
+		public UomController(IUomRepository repository)
+		{
+			_repository = repository;
+		}
+
+
+
 		/************************************* GET *********************************************/
 
-		
 
-		public UomController()
-		{
 
-		}
 
 
 
@@ -32,8 +33,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		[HttpGet]
 		public IActionResult GetUoms()
 		{
-			var query = new GetUomsQuery();
-			var result =query.Handle();
+			var result = _repository.GetUoms();
 			return Ok(result);
 		}
 
@@ -43,10 +43,8 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		[HttpGet("{id}")]
 		public IActionResult GetUomById(int id)
 		{
-			var query = new GetUomDetailQuery();
-			query.UomId = id;
 
-			var result = query.Handle();
+			var result = _repository.GetUomDetail(id);
 			return Ok(result);
 		}
 
@@ -62,11 +60,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		public IActionResult CreateUom([FromBody] Uom newUom)
 		{
 
-			var command = new CreateUomCommand();
-			command.Model = newUom;
-			command.Handle();
-
-			
+			_repository.CreateUom(newUom);
 			return Created("~api/uoms", newUom);  
 		}
 
@@ -80,13 +74,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		public IActionResult Update(int id, Uom newUom)
 		{
 
-			var command = new UpdateUomCommand();
-			command.UomId = id;
-			command.Model = newUom;
-
-
-			command.Handle();
-
+			_repository.UpdateUom(id, newUom);
 			return NoContent(); 
 
 		}
@@ -100,10 +88,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
 		public IActionResult Delete(int id)
 		{
-			var command = new DeleteUomCommand();
-			command.UomId = id;
-			command.Handle();
-
+			_repository.DeleteUom(id);
 			return NoContent(); 
 		}
 
@@ -116,13 +101,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		[HttpPatch("{id}")]
 		public IActionResult UpdateDescription(int id, string description)
 		{
-			var command = new UpdateUomDescriptionCommand();
-			command.UomId = id;
-			command.Description = description;
-
-
-			command.Handle();
-
+			_repository.UpdateUomDescription(id,description);
 			return NoContent();
 		}
 	}

@@ -1,5 +1,6 @@
-﻿using AliGulmen.Week4.HomeWork.RestfulApi.DbOperations;
-using AliGulmen.Week4.HomeWork.RestfulApi.Entities;
+﻿using AliGulmen.Week4.HomeWork.RestfulApi.Entities;
+using AliGulmen.Week4.HomeWork.RestfulApi.Repositories;
+using AliGulmen.Week4.HomeWork.RestfulApi.Repositories.ContainerRepositories;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,16 +8,21 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Services.StorageService
 {
     public class WarehouseStorage : IStorageService
     {
-        private static List<Stock> StockList = DataGenerator.StockList;
+        private readonly IStockRepository _repository;
+
+        public WarehouseStorage(IStockRepository repository)
+        {
+            _repository = repository;
+        }
         public void AddToStock(Container container)
         {
             
-
-            var stock = StockList.FirstOrDefault(s => s.Product.Id == container.Product.Id);
+           
+            var stock = _repository.GetStocks().FirstOrDefault(s => s.ProductId == container.ProductId);
             if (stock != null)
                 stock.StockOnRack += 1;
             else
-                StockList.Add(new Stock { ProductId = container.Product.Id, ReadyToShip = 0, StockOnRack = 1 });
+                _repository.CreateStock(new Stock { ProductId = container.ProductId, ReadyToShip = 0, StockOnRack = 1 });
         }
 
         public void Locate(Container container)

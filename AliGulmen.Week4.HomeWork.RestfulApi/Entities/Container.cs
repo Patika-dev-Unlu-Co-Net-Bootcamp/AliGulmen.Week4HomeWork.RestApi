@@ -9,9 +9,10 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Entities
         
         public int Id { get; set; }
 
-       
+       public int ProductId { get; set; } 
        public Product Product { get; set; }
-      
+
+        public int UomId { get; set; }
         public Uom Uom { get; set; }
 
         [Required]

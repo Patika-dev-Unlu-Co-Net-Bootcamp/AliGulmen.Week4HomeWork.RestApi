@@ -1,6 +1,8 @@
 ﻿using AliGulmen.Week4.HomeWork.RestfulApi.Attributes;
 using AliGulmen.Week4.HomeWork.RestfulApi.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System.Linq;
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
@@ -10,25 +12,35 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
     public class AccountController : ControllerBase
     {
 
+        private readonly UserManager<User> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IConfiguration _configuration;
+
+
+
 
         private readonly TokenGenerator _tokenGenerator; 
-        public AccountController(TokenGenerator tokenGenerator)
+        public AccountController(TokenGenerator tokenGenerator, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
         {
             _tokenGenerator = tokenGenerator;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
 
 
         [HttpPost]
-        public Token Login([FromBody] User user)
+        public IActionResult Login([FromBody] User user)
         {
             Token token = new Token();
 
             if (user.PasswordHash == "1" && user.Email == "a@a.com")
             {
                 token = _tokenGenerator.CreateToken(user);
+                return Ok(token);
             }
 
-            return token;
+            return Unauthorized();
+
         }
 
 

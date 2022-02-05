@@ -14,9 +14,10 @@ Restful api oluşturun
 - rol bazlı yapı tanımlayın
 
 ## External References
-
-[Authentication And Authorization](https://www.c-sharpcorner.com/article/authentication-and-authorization-in-asp-net-core-web-api-with-json-web-tokens/#:~:text=Authentication%20is%20the%20process%20of,specific%20modules%20in%20an%20application.)
-[Naming Convention](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/naming-rules)
+- [Coding Conventions](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
+- [Naming Convention](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/naming-rules)
+- [Authentication And Authorization](https://www.c-sharpcorner.com/article/authentication-and-authorization-in-asp-net-core-web-api-with-json-web-tokens/#:~:text=Authentication%20is%20the%20process%20of,specific%20modules%20in%20an%20application.)
+- [Example Project](https://www.youtube.com/watch?v=ZXdFisA_hOY)
 
 
 # Week 2

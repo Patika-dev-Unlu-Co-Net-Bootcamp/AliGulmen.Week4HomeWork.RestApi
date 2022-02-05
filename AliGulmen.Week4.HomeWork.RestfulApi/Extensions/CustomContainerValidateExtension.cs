@@ -10,8 +10,8 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Extensions
             {
 
             existingContainer.Id = newContainer.Id != default ? newContainer.Id : existingContainer.Id;
-            existingContainer.Product.Id = newContainer.Product.Id != default ? newContainer.Product.Id : existingContainer.Product.Id;
-            existingContainer.Uom.Id = newContainer.Uom.Id != default ? newContainer.Uom.Id : existingContainer.Uom.Id;
+            existingContainer.ProductId = newContainer.ProductId != default ? newContainer.ProductId : existingContainer.ProductId;
+            existingContainer.UomId = newContainer.UomId != default ? newContainer.UomId : existingContainer.UomId;
             existingContainer.Quantity = newContainer.Quantity != default ? newContainer.Quantity : existingContainer.Quantity;
             existingContainer.LocationId = newContainer.LocationId != default ? newContainer.LocationId : existingContainer.LocationId;
             existingContainer.Weight = newContainer.Weight != default ? newContainer.Weight : existingContainer.Weight;

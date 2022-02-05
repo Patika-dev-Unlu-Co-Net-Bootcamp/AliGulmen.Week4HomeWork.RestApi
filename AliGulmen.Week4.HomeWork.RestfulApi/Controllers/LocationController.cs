@@ -1,13 +1,7 @@
 ﻿using AliGulmen.Week4.HomeWork.RestfulApi.Entities;
 using Microsoft.AspNetCore.Mvc;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.GetLocations;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.GetLocationDetail;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.GetLocationListByRotation;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.CreateLocation;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.UpdateLocation;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.DeleteLocation;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.LocationOperations.UpdateLocationRotation;
 using Microsoft.AspNetCore.Authorization;
+using AliGulmen.Week4.HomeWork.RestfulApi.Repositories;
 
 namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 {
@@ -16,9 +10,11 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
     [ApiController]
     public class LocationController : ControllerBase
     {
-
-        public LocationController()
-        { }
+        private readonly ILocationRepository _repository;
+        public LocationController(ILocationRepository repository)
+        {
+            _repository = repository;
+        }
 
         /************************************* GET *********************************************/
 
@@ -27,31 +23,28 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
         [HttpGet]
         public IActionResult GetLocations()
         {
-            var query = new GetLocationsQuery();
-            var result = query.Handle();
+            var result = _repository.GetLocations();
             return Ok(result);
         }
+
+
 
         //GET api/locations/1
         [HttpGet("{id}")]
         public IActionResult LocationById(int id)
         {
-            var query = new GetLocationDetailQuery();
-            query.LocationId = id;
-
-            var result = query.Handle();
+            var result = _repository.GetLocationDetail(id);
             return Ok(result);
         }
+
+
 
         //GET api/products/list?rotationId=1
         [HttpGet("list")]
         public IActionResult GetProductsByRotation([FromQuery] int rotationId)
         {
 
-            var query = new GetLocationListQuery();
-            query.RotationId = rotationId;
-
-            var result = query.Handle();
+            var result = _repository.GetLocationListByRotation(rotationId);
             return Ok(result);
         }
 
@@ -67,10 +60,8 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
         public IActionResult CreateLocation([FromBody] Location newLocation)
         {
 
-            var command = new CreateLocationCommand();
-            command.Model = newLocation;
-            command.Handle();
-            return Created("~api/locations", newLocation); 
+            _repository.CreateLocation(newLocation);
+            return Created("~api/locations", newLocation);
         }
 
 
@@ -83,13 +74,8 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
         public IActionResult Update(int id, Location newLocation)
         {
 
-            var command = new UpdateLocationCommand();
-            command.LocationId = id;
-            command.Model = newLocation;
-
-
-            command.Handle();
-            return NoContent(); 
+            _repository.UpdateLocation(id, newLocation);
+            return NoContent();
 
         }
 
@@ -101,10 +87,8 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
         public IActionResult Delete(int id)
         {
-            var command = new DeleteLocationCommand();
-            command.LocationId = id;
-            command.Handle();
-            return NoContent(); 
+            _repository.DeleteLocation(id);
+            return NoContent();
         }
 
 
@@ -115,13 +99,8 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
         [HttpPatch("{id}")]
         public IActionResult UpdateRotation(int id, int rotationId)
         {
-            var command = new UpdateLocationRotationCommand();
-            command.LocationId = id;
-            command.RotationId = rotationId;
-
-
-            command.Handle();
-            return NoContent(); 
+            _repository.UpdateLocationRotation(id, rotationId);
+            return NoContent();
 
 
         }

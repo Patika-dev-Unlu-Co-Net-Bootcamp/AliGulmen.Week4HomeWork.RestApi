@@ -1,6 +1,12 @@
 using AliGulmen.Week4.HomeWork.RestfulApi.Entities;
 using AliGulmen.Week4.HomeWork.RestfulApi.Filters;
 using AliGulmen.Week4.HomeWork.RestfulApi.Middlewares;
+using AliGulmen.Week4.HomeWork.RestfulApi.Repositories;
+using AliGulmen.Week4.HomeWork.RestfulApi.Repositories.ContainerRepositories;
+using AliGulmen.Week4.HomeWork.RestfulApi.Repositories.LocationRepositories;
+using AliGulmen.Week4.HomeWork.RestfulApi.Repositories.ProductRepositories;
+using AliGulmen.Week4.HomeWork.RestfulApi.Repositories.RotationRepositories;
+using AliGulmen.Week4.HomeWork.RestfulApi.Repositories.UomRepositories;
 using AliGulmen.Week4.HomeWork.RestfulApi.Services.LoggerService;
 using AliGulmen.Week4.HomeWork.RestfulApi.Services.StorageService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -50,23 +56,40 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi
 
 
 
-            //JWT
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
-                 options => options.TokenValidationParameters = new TokenValidationParameters
+
+            // https://www.c-sharpcorner.com/article/authentication-and-authorization-in-asp-net-core-web-api-with-json-web-tokens/
+            services.AddAuthentication(
+                options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                }
+                )
+
+
+                //Adding JWT Bearer
+                .AddJwtBearer(
+                 options =>
                  {
-                     ValidateAudience = true,                       //will it check audience?
-                     ValidAudience = Configuration["Jwt:Audience"], //appsettings.json > Jwt > Audience
-                     ValidateIssuer = true,                         //will it check issuer?
-                     ValidIssuer = Configuration["Jwt:Issuer"],     //appsettings.json > Jwt > Issuer
-                     ValidateLifetime = true,                       //we will define different life times for different tokens. Not here.
-                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"])),
-                     ClockSkew = TimeSpan.Zero 
+                     options.SaveToken = true;
+                     options.TokenValidationParameters = new TokenValidationParameters
+                     {
+                         ValidateAudience = true,                       //will it check audience?
+                         ValidAudience = Configuration["Jwt:Audience"], //appsettings.json > Jwt > Audience
+                         ValidateIssuer = true,                         //will it check issuer?
+                         ValidIssuer = Configuration["Jwt:Issuer"],     //appsettings.json > Jwt > Issuer
+                         ValidateLifetime = true,                       //we will define different life times for different tokens. Not here.
+                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"])),
+                         ClockSkew = TimeSpan.Zero
+
+                     };
+
 
                  }
-
                  );
 
-
+            services.AddScoped<TokenGenerator>();
 
             services.AddSwaggerGen(c =>
             {
@@ -75,7 +98,15 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi
 
             services.AddSingleton<ILoggerService, TextFileLogger>();
             services.AddSingleton<IStorageService, WarehouseStorage>();
-            services.AddScoped<TokenGenerator>();
+
+
+
+            services.AddSingleton<IContainerRepository, InMemContainerRepository>();
+            services.AddSingleton<ILocationRepository, InMemLocationRepository>();
+            services.AddSingleton<IProductRepository, InMemProductRepository>();
+            services.AddSingleton<IRotationRepository, InMemRotationRepository>();
+            services.AddSingleton<IStockRepository, InMemStockRepository>();
+            services.AddSingleton<IUomRepository, InMemUomRepository>();
         }
 
 

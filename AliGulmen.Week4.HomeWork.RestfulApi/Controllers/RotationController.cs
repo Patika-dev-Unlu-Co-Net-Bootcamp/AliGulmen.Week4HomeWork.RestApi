@@ -1,12 +1,5 @@
 ﻿using AliGulmen.Week4.HomeWork.RestfulApi.Entities;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.CreateRotation;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.DeleteRotation;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.GetRotationDetail;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.GetRotationLocations;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.GetRotationProducts;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.GetRotations;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.UpdateRotation;
-using AliGulmen.Week4.HomeWork.RestfulApi.Operations.RotationOperations.UpdateRotationCode;
+using AliGulmen.Week4.HomeWork.RestfulApi.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,9 +11,13 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 	public class RotationController : ControllerBase
 	{
 
-		
-		public RotationController()
-		{ }
+		private readonly IRotationRepository _repository;
+
+
+		public RotationController(IRotationRepository repository)
+		{ 
+		_repository = repository;
+		}
 
 		/************************************* GET *********************************************/
 
@@ -29,8 +26,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		[HttpGet]
 		public IActionResult GetRotations()
 		{
-			var query = new GetRotationsQuery();
-			var result = query.Handle();
+			var result = _repository.GetRotations();
 			return Ok(result);
 		}
 
@@ -39,34 +35,28 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		[HttpGet("{id}")]
 		public IActionResult GetRotationById(int id)
 		{
-			var query = new GetRotationDetailQuery();
-			query.RotationId = id;
-
-			var result = query.Handle();
+			var result = _repository.GetRotationDetail(id);
 			return Ok(result);
 		}
 
 
 		//GET api/rotations/1/Locations
+		[AllowAnonymous]
 		[HttpGet("{id}/Locations")]
 		public IActionResult GetLocationsByRotation(int id)
 		{
-			var query = new GetRotationLocationsQuery();
-			query.RotationId = id;
-
-			var result = query.Handle();
+			var result = _repository.GetRotationLocations(id);
 			return Ok(result);
 		}
 
 
 		//GET api/rotations/1/Products
+		[AllowAnonymous]
 		[HttpGet("{id}/Products")]
 		public IActionResult GetProductsByRotation(int id)
 		{
-			var query = new GetRotationProductsQuery();
-			query.RotationId = id;
+			var result = _repository.GetRotationProducts(id);
 
-			var result = query.Handle();
 			return Ok(result);
 		}
 
@@ -80,10 +70,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		[HttpPost]
 		public IActionResult CreateRotation([FromBody] Rotation newRotation)
 		{
-			var command = new CreateRotationCommand();
-			command.Model = newRotation;
-			command.Handle();
-
+			_repository.CreateRotation(newRotation);
 			return Created("~api/rotations", newRotation); 
 		}
 
@@ -96,13 +83,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		[HttpPut("{id}")]
 		public IActionResult Update(int id,Rotation newRotation)
 		{
-
-			var command = new UpdateRotationCommand();
-			command.RotationId = id;
-			command.Model = newRotation;
-
-
-			command.Handle();
+			_repository.UpdateRotation( id, newRotation);
 			return NoContent(); 
 		}
 
@@ -114,10 +95,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 
 		public IActionResult Delete(int id)
 		{
-			var command = new DeleteRotationCommand();
-			command.RotationId = id;
-			command.Handle();
-
+			_repository.DeleteRotation(id);
 			return NoContent(); 
 		}
 
@@ -129,12 +107,7 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Controllers
 		[HttpPatch("{id}")]
 		public IActionResult UpdateCode(int id, string code)
 		{
-			var command = new UpdateRotationCodeCommand();
-			command.RotationId = id;
-			command.Code = code;
-
-
-			command.Handle();
+			_repository.UpdateRotationCode( id, code);
 			return NoContent(); 
 
 		}

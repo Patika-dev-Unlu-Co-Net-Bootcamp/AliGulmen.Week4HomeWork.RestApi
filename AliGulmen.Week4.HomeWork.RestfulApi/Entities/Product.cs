@@ -13,11 +13,13 @@ namespace AliGulmen.Week4.HomeWork.RestfulApi.Entities
 		public string ProductCode { get; set; }
 
 		public string Description { get; set; }
-		public Rotation Rotation { get; set; }
+		public int RotationId { get; set; }
+		
 
 		public int LifeTime { get; set; }
 
 	
 		public List<Container> Container { get; set; }
+		public Rotation Rotation { get; set; }
 	}
 }
